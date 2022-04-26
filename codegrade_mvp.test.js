@@ -72,6 +72,7 @@ describe('server.js', () => {
       expect(res.status).toBe(422)
       expect(res.body.message).toMatch(/ must be longer than 3/i)
       res = await request(server).post('/api/auth/register').send({ username: 'sue', password: '1' })
+      console.log(res.body.message)
       expect(res.status).toBe(422)
       expect(res.body.message).toMatch(/ must be longer than 3/i)
     }, 750)
